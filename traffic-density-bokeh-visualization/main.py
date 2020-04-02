@@ -21,19 +21,38 @@ query = "SELECT * FROM users"
 cursor.execute(query)
 records=cursor.fetchall()
 cols= ["ind","name","username"]
+df1=pandas.DataFrame()
 
-df = pandas.DataFrame()
-#for i in range(len(records)):
+for i in range(len(records)):
+    df=pandas.DataFrame()    
+    names=[]
+    usernames=[]
+    ids=[]
+
+    ids.append(records[i][0])
+    names.append(records[i][1])
+    usernames.append(records[i][2])
+
+
+    df = pandas.DataFrame({'id':ids,'names':names,'usernames':usernames})
+    df1=pandas.concat([df1,df],ignore_index=True)
+
+numbers=[25,98,55,67,130]
+df1['numbers']=numbers
+print(df1)
+
+names1=df1['names']
+numbers1=df1['numbers']
+
+output_file("tile.html")
+
+p=figure(
+    title='simple example',
+    x_axis_label='names',
+    y_axis_label='costs',
     
+)
+p.line(names1,numbers1,legend='test',line_width=2)
 
-#output_file("tile.html")
-
-#tile_provider = get_provider(CARTODBPOSITRON)
-
-# range bounds supplied in web mercator coordinates
-#p = figure(x_range=(-2000000, 6000000), y_range=(-1000000, 7000000),
-           #x_axis_type="mercator", y_axis_type="mercator")
-#p.add_tile(tile_provider)
-
-#show(p)
+show(p)
 #save(p)
