@@ -1,3 +1,4 @@
+import bokeh
 from bokeh.plotting import figure, output_file, save, show
 from bokeh.tile_providers import CARTODBPOSITRON, get_provider
 import pandas
@@ -47,12 +48,21 @@ numbers1=df1['numbers']
 output_file("tile.html")
 
 p=figure(
+    y_range=names1,
     title='simple example',
-    x_axis_label='names',
-    y_axis_label='costs',
-    
+    plot_width=800,
+    plot_height=600,
+    x_axis_label='names'
+    )
+
+p.hbar(
+    y=names1,
+    right=numbers1,
+    left=0,
+    height=0.4,
+    color='red',
+    fill_alpha=0.5
 )
-p.line(names1,numbers1,legend='test',line_width=2)
 
 show(p)
 #save(p)
