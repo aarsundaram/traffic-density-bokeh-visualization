@@ -10,6 +10,9 @@ pyproj = "*"
 bokeh = "*"
 mysql-connector = "*"
 pandas = "*"
+datetime = "*"
+matplotlib-pyplot = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.7"
