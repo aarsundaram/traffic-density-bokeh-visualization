@@ -1,0 +1,31 @@
+CREATE TABLE `createbuses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Time` double DEFAULT NULL,
+  `Segment` varchar(100) DEFAULT NULL,
+  `Buses` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39745 DEFAULT CHARSET=latin1
+
+CREATE TABLE `createcars` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Time` double DEFAULT NULL,
+  `Segment` varchar(100) DEFAULT NULL,
+  `Cars` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39745 DEFAULT CHARSET=latin1
+
+CREATE TABLE `createtrucks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Time` double DEFAULT NULL,
+  `Segment` varchar(100) DEFAULT NULL,
+  `Trucks` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39745 DEFAULT CHARSET=latin1
+
+CREATE TABLE `destroyedvehicles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Time` double DEFAULT NULL,
+  `Segment` varchar(100) DEFAULT NULL,
+  `DestroyVehicles` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39745 DEFAULT CHARSET=latin1
