@@ -13,8 +13,9 @@ source1 = hourwise[0]['source']
 numbers1 = hourwise[0]['number']
 
 def n_function():
-    source1 = hourwise[24]['source']
-    numbers1 = hourwise[24]['number']
+    source1 = hourwise[94]['source']
+    numbers1 = hourwise[94]['number']
+    
 
 p = figure(
     y_range=source1,
@@ -32,10 +33,7 @@ p.hbar(
     color='red',
     fill_alpha=0.5
 )
-print('hi')
-show(p)
-#i += 1
 
-output_file('title1.html')
-#print('hi')
-curdoc().add_periodic_callback(n_function, 2)
+
+curdoc().add_periodic_callback(n_function, 200)
+show(p)
