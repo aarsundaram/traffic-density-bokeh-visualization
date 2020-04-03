@@ -2,6 +2,16 @@ import bokeh
 from bokeh.plotting import figure, output_file, save, show
 from bokeh.tile_providers import CARTODBPOSITRON, get_provider
 import pandas
+from bokeh.models import ColumnDataSource, Range1d
+from bokeh.layouts import layout
+from bokeh.palettes import Spectral3
+from bokeh.tile_providers import CARTODBPOSITRON
+from pyproj import Proj, transform
+
+
+output_file('mapping_N1.html')
+
+
 # Connecting to the database
 
 ## importing 'mysql.connector' as mysql for convenient
@@ -33,5 +43,11 @@ cursor = db.cursor()
 #query= "CREATE TABLE destroyedvehicles (id INT(11) NOT NULL AUTO_INCREMENT,Time DOUBLE DEFAULT NULL,Segment VARCHAR(100) DEFAULT NULL, DestroyVehicles INT(11) DEFAULT NULL, PRIMARY KEY (id))" 
 #cursor.execute(query)
 
-
+query="SELECT * from createtrucks"
 cursor.execute(query)
+## getting records from the table
+records=cursor.fetchall()
+
+for record in records:
+    print(record)
+

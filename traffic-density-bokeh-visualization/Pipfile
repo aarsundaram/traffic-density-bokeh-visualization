@@ -6,9 +6,10 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+pyproj = "*"
 bokeh = "*"
-pandas = "*"
 mysql-connector = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.7"
