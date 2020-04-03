@@ -35,4 +35,3 @@ cursor = db.cursor()
 
 
 cursor.execute(query)
-
