@@ -11,7 +11,7 @@ for i in df1['hour'].unique():
     hourwise.append(df1.loc[df1['hour']==i])
 
 j=0
-while j<96:
+while j<=96:
     source1=hourwise[j]['source']
     numbers1=hourwise[j]['number']
     yr= range(200)
@@ -36,6 +36,6 @@ while j<96:
     j+=1
 
     save(p)
-    output_file('hundredtabs.html')
+    output_file('hundredtabs.html') ##open this with live-server (ritwik dey)
     time.sleep(0.5)
     

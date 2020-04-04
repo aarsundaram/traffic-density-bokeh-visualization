@@ -13,27 +13,29 @@ output_file('mapping_N1.html')
 
 
 # Connecting to the database
-
-## importing 'mysql.connector' as mysql for convenient
 import mysql.connector as mysql
 
 db = mysql.connect(
     host = "localhost",
     user = "root",
-    passwd = "einstein",
+    passwd = "-",
     database= "epa1315group17"
 )
 
 ## creating an instance of 'cursor' class which is used to execute the 'SQL' statements in 'Python'
 cursor = db.cursor()
 
+#creating database "epa1315group17" according to schema in Simio 
+query= 'CREATE TABLE createbuses (id INT(11) NOT NULL AUTO_INCREMENT,Time DOUBLE DEFAULT NULL,Segment VARCHAR(100) DEFAULT NULL,Buses INT(11) DEFAULT NULL,PRIMARY KEY (id))'
+cursor.execute(query)
+query="SELECT * from createtrucks"
+cursor.execute(query)
+## getting records from the table
+records=cursor.fetchall()
 
-# creating database "epa1315group17" according to schema in Simio
-#uncomment for creating in your own system 
-
-#query= 'CREATE TABLE createbuses (id INT(11) NOT NULL AUTO_INCREMENT,Time DOUBLE DEFAULT NULL,Segment VARCHAR(100) DEFAULT NULL,Buses INT(11) DEFAULT NULL,PRIMARY KEY (id))'
-#cursor.execute(query)
-
+for record in records:
+    print(record)
+    
 #query= "CREATE TABLE createcars (id INT(11) NOT NULL AUTO_INCREMENT,Time DOUBLE DEFAULT NULL,Segment VARCHAR(100) DEFAULT NULL, Cars INT(11) DEFAULT NULL, PRIMARY KEY (id))" 
 #cursor.execute(query)
 
@@ -43,11 +45,5 @@ cursor = db.cursor()
 #query= "CREATE TABLE destroyedvehicles (id INT(11) NOT NULL AUTO_INCREMENT,Time DOUBLE DEFAULT NULL,Segment VARCHAR(100) DEFAULT NULL, DestroyVehicles INT(11) DEFAULT NULL, PRIMARY KEY (id))" 
 #cursor.execute(query)
 
-query="SELECT * from createtrucks"
-cursor.execute(query)
-## getting records from the table
-records=cursor.fetchall()
 
-for record in records:
-    print(record)
 
