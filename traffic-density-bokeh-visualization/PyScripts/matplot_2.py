@@ -14,11 +14,14 @@ ydata = 1
 plt.show()
  
 axes = plt.gca()
+axes.set_xlabel('Road Segments')
+axes.set_ylabel('Vehicle Density')
 axes.set_xlim(0, 69)
 axes.set_ylim(0,900)
-line1, = axes.plot(xdata, ydata, 'r*-')
-line2, = axes.plot(xdata, ydata, 'b+-')
+line1, = axes.plot(xdata, ydata, 'r*-',label='truck')
+line2, = axes.plot(xdata, ydata, 'b+-',label='car')
 axes.set_xticks(list(range(0, 69, 2)))
+axes.legend()
 for hr in range(0,96):
     ydata1=hourwise[hr]['number']
     xdata = list(range(0,69))
@@ -27,6 +30,7 @@ for hr in range(0,96):
     line1.set_ydata(ydata1)
     line2.set_xdata(xdata)
     line2.set_ydata(ydata2)
+    axes.set_title('Hour= '+ str(hr))
     plt.draw()
     plt.pause(1e-17)
     time.sleep(0.01)
