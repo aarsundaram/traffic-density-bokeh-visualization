@@ -33,7 +33,11 @@ for m in df4['Time'].unique():
     hourwise4.append(df4.loc[df4['Time']==m])
 ydata4=[] 
 
-plt.show()
+ynet=[]
+for n in range(len(hourwise2)):
+    ynet.append((hourwise1[n]['Trucks']+hourwise3[n]['Cars']+hourwise4[n]['Buses'])-hourwise2[n]['DestroyVehicles'])
+print(ynet)
+#plt.show()
  
 axes = plt.gca()
 axes.set_xlabel('Road Segments')
@@ -80,4 +84,4 @@ for hr in range(0,96):
     time.sleep(0.01)
 
 #  add this if you don't want the window to disappear at the end
-plt.show()
+#plt.show()
